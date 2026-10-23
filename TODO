@@ -1,0 +1,31 @@
+* Cleanup
+** Control indices better
+** Store data inside graphs?
+Currently (GraphMap, Vec Vector) is used as a unit.
+** Identify filling subgraph
+for the $\lambda$-filling map. Not clear if this is necessary.
+** Different types of maps
+Simplicial, combinatorial, geometric
+** Fix linear algebra
+Do need to do the QP problem, or at least LP.
+Could try doing something more naive and faster, with a fall back.
+** Cleaner input/output
+*** Better Show instance for (eg) GraphMap
+Match the input.
+*** Better Read instances
+Match the input I actually use
+* Go further
+** Optimize elastic lengths
+*** Compute the derivatives
+*** Find some minimum-finding technique
+** Bartholdi-Nekrashevych style input
+I'm pretty close, actually.
+** Allow marked graphs
+There are some variations here, depending whether I want to
+understand tripods/hexagons or to work with more general rational maps
+** Iterate more intelligently
+Use the previously computed maps. This should speed up later steps considerably.
+* Emacs junk
+Local Variables:
+mode: org
+End:

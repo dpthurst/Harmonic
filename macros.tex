@@ -1,0 +1,84 @@
+% A binary operator with a subscript on both sides (and correct spacing)
+% Name stands for subscript-operator-subscript
+% Perhaps this should be using \manyindices?
+\newcommand{\sos}[3]{\mathbin{{}_{#1}\mathord#2_{#3}}}
+
+% manyindices
+% Adapted from code by "bza" in comp.text.tex, Feb. 7, 2006
+%% USAGE:
+%%
+%% \manyindices#1#2#3#4#5
+%%
+%% #1=lower left index
+%% #2=upper left index
+%% #3=lower right index
+%% #4=upper right index
+%% #5=main symbol
+\makeatletter
+\newcommand\mi@kern[1]{%
+  \settowidth\@tempdima{$\mi@obj^{#1}$}
+  \kern-\@tempdima
+  #1
+  \settowidth\@tempdima{$\mi@obj$}
+  \kern\@tempdima
+}
+
+\newtoks\mi@toksp
+\newtoks\mi@toksb
+\DeclareRobustCommand{\manyindices}[5]{
+  \def\mi@obj{#5}
+  \mi@toksp\expandafter{\mi@kern{#2}}
+  \mi@toksb\expandafter{\mi@kern{#1}}
+  \@mathmeasure4\textstyle{#5_{#1}^{#2}}
+  \@mathmeasure6\textstyle{#5_{#3}^{#4}}
+  \dimen0-\wd6 \advance\dimen0\wd4
+  \@mathmeasure8\textstyle{\hphantom{{}_{#1}^{#2}}#5^{\the\mi@toksp#4}_{\the\mi@toksb#3}}
+  \hbox to \dimen0{}{\kern-\dimen0\box8}
+}
+\makeatother 
+
+% Left sub/super scripts
+% \lsup is a temporary definition until something better is worked out
+% Use \lsupv if the next argument is vertical
+\newcommand{\lsub}[2]{{}_{#1}#2}
+\newcommand{\lsup}[2]{{}^{#1}\mskip-.6\thinmuskip#2}
+\newcommand{\lsupv}[2]{{}^{#1}#2}
+\newcommand{\lsubsup}[3]{\manyindices{#1}{\mskip.6\thinmuskip#2\mskip-.6\thinmuskip}{}{}{\mathord{#3}}}
+\newcommand{\lsubsupv}[3]{\manyindices{#1}{\mskip.2\thinmuskip#2\mskip-.2\thinmuskip}{}{}{\mathord{#3}}}
+
+\newcounter{saveenum}
+
+% Read the file, if it exists
+\newread\testin
+\def\maybeinput#1{
+\openin\testin=#1
+\ifeof\testin\typeout{Warning: input #1 not found}\else\input#1\fi
+\closein\testin
+}
+
+\def\mathcenter#1{%
+  \vcenter{\hbox{$#1$}}%
+}
+
+\def\graph#1{
+        \includegraphics{#1}
+}
+
+\def\mathgraph#1{
+        \mathcenter{\graph{#1}}
+}
+
+\def\mfig#1{
+        \mathcenter{\includegraphics{#1}}
+}
+
+\def\mfigb#1{
+        \mathcenter{\includegraphics[trim=-1 -1 -1 -1]{#1}}
+}
+
+\newcommand{\DPTtodo}[1]{\todo[color=green!40]{#1}}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

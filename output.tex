@@ -1,0 +1,101 @@
+\documentclass[12pt]{amsart}
+\input{preamble}
+\input{defs}
+
+\begin{document}
+
+\section{Map $(1+z^2)/(1-z^2)$}
+For the map $z \mapsto \frac{1+z^2}{1-z^2}$. Values of $\Emb$ for
+$f^{(n)}$, using the theta graph with the given parameter. A middle
+edge parameter of $0$ means that it degenerates to a bouquet, and a
+negative middle edge parameter means we go to the corresponding
+barbell graph.
+
+The actual limit is $2^{-1/3} \approx 0.793701$.
+
+\medskip
+\begin{tabular}{cccllllll}
+  \toprule
+  \multicolumn{3}{c}{Lengths} & \multicolumn{5}{c}{$\SF[f^{(n)}]^{1/n}$}
+  \\ \cmidrule(r){1-3} \cmidrule(l) {4-9}
+  $\alpha$ & $\beta$ & $\gamma$ &
+    1 & 2 & 3 & 4 & 5 & 6\\
+  \midrule
+  1 & 1 & 1 & 1.5 & 0.879465 & 0.949914 & 0.852017 & 0.873482 & 0.839640\\
+  2 & 1 & 2 & 1 & 0.850651 & 0.849697 & 0.824971 & 0.824330 & 0.815531\\
+  3 & 1 & 3 & 0.877485 & 0.839749 & 0.828237 & 0.818917 & 0.814571 & 0.810719 \\
+%  3.835976 & 1 & 3.835976 & 0.864082 & 0.838881 & $\le$0.825\\
+  4 & 1 & 4 & 0.864357 & 0.839121 & 0.825873 & 0.818408 & 0.813523 & 0.810268\\
+% Function is not differentiable here, harder to optimize
+  4.9 & 1 & 4.0 & 0.821814 & 0.819795 & 0.814795 & 0.810533 & 0.807557
+     & 0.805284\\
+  1 & 0 & 1 & 1 & $(3/4)^{1/2}$ & $(5/8)^{1/3}$ & $(23/48)^{1/4}$ &
+     $(187/480)^{1/5}$ & 0.819766 \\
+  &&& $\;\; = 1.000$ & $\;\;\approx 0.866$ & $\;\;\approx 0.855$ &
+    $\;\;\approx 0.832$ & $\;\;\approx 0.828$ \\
+  1.917988 & 0 & 1 & 0.8640816 & 0.838881 & 0.825763 & 0.818299 & 0.813454 & 0.810201\\
+  2 & 0 & 1 & 0.864357 & 0.839121 & 0.825873 & 0.818408 & 0.813523 & 0.810268\\
+  3 & 0 & 1 & 0.883796 & 0.843672 & 0.830341 & 0.820711 & 0.815822 & 0.811843\\
+  4 & 0 & 1 & 0.903684 & 0.847586 & 0.834688 & 0.822729 & 0.818008 & 0.813257\\
+  1 & -1 & 1 & 3 & 0.929708 & 1.173344 & 0.907505 & 0.980051 & 0.889461\\
+  \bottomrule
+\end{tabular}
+
+\begin{figure}
+  \centering
+  \includegraphics{logplot.pdf}
+  \caption{Stretch factor graph}
+\end{figure}
+
+\section{Slit Latt\'es}
+For the map $z \mapsto \dfrac{z^2(z-1)}{(z-1/3)^3}$. This is a slit
+Latt\'es example; it is degree 3, with a Sierpinski carpet Julia set
+with 3 post-critical points.
+
+\medskip
+\begin{tabular}{cccllll}
+  \toprule
+  \multicolumn{3}{c}{Lengths} & \multicolumn{4}{c}{$\SF[f^{(n)}]^{1/n}$}
+  \\ \cmidrule(r){1-3} \cmidrule(l) {4-7}
+  $\alpha$ & $\beta$ & $\gamma$ &
+    1 & 2 & 3 & 4 \\
+  \midrule
+  2 & 1 & 1 & 0.972440 & 0.947655 & 0.940825 & 0.927966 \\
+  1.9 & 1.05 & 1 & 0.959911 & 0.950588 & 0.940276 & 0.927752 \\
+  \bottomrule
+\end{tabular}
+\medskip
+
+\section{Quadratic Sierpinski carpet}
+\label{sec:quadratic-carpet}
+This is the unique quadratic rational map with 4 post-critical points
+whose Julia set is a Sierpinski carpet. In Kevin Pilgrim's census, it
+is \#3.2.
+
+\medskip
+\begin{tabular}{cccccclllll}
+  \toprule
+  \multicolumn{6}{c}{Lengths} & \multicolumn{5}{c}{$\SF[f^{(n)}]^{1/n}$}
+  \\ \cmidrule(r){1-6} \cmidrule(l) {7-11}
+  $p$ & $q$ & $r$ & $s$ & $t$ & $u$ &
+    1 & 2 & 3 & 4 & 5\\
+  \midrule
+  1 & 1 & 1 & 1 & 1 & 1 &
+    2.655877 & 1.335510 & 1.165806 & 1.183873 & 1.073528 \\
+  189 & 211 & 68.8 & 170 & 1 & 1 &
+    1.109720 & 1.106635 & 1.076329 \\
+  \bottomrule
+\end{tabular}
+\medskip
+
+I have not found a graph with $\SF < 1$ before iterating in this
+case. The asymptotic stretch factor seems to be about 0.94. I appear
+to hit some bug in the program where it doesn't converge on the bottom
+line.
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

@@ -1,0 +1,36 @@
+This directory has files for the programs on harmonic maps.
+
+The program uses the "hmatrix" library, which is probably not
+installed by default. I was using version 0.16.0.6. You need to install 'cabal' as well as 'ghc', and then install hmatrix with
+% cabal install hmatrix
+
+The '.lhs' files are literate haskell, and can be compiled by running
+pdflatex on them. The output is included here.
+
+Top-level
+------------------------------------------------------------
+Examples.hs: Main file. Many examples of specific graphs coming from rational maps.
+Julia.lhs: Examples where Julia set is the whole sphere
+
+Utility
+------------------------------------------------------------
+Util.hs: random utility stubs.
+CyclicList.hs: treating linked lists as cyclic lists
+IMatrix.hs: Wrapper around the hmatrix library. Mainly to allow vectors of length 0.
+Mappable.hs: Some utility type classes to allow various types of "application"
+Permutation.hs: Computing with permutations
+
+Graphs
+------------------------------------------------------------
+Graph.lhs: Internal representation of graphs
+GraphMap.lhs: Representing maps between graphs
+GraphIO.lhs: textual representation of graphs of various types
+GraphCover.lhs: Covers of graphs
+Circle.lhs: Special functions for the circle and maps to it
+
+Computations
+------------------------------------------------------------
+Harmonic.lhs: Harmonic (spring-energy-minimizing) maps between graphs
+Filling.lhs: Finding minimal strutch factors
+OptFilling.lhs: A start on optimizing the filling energy by varying elastic weights
+Torus.lhs: Compute shape of sphere with four marked points
